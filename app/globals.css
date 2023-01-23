@@ -19,19 +19,7 @@ html {
   letter-spacing: 1%;
 }
 
-@layer components {
-  .rounded-base {
-    @apply rounded-[8px];
-  }
-  .flex-center {
-    @apply flex justify-center items-center;
-  }
-  .btn {
-    @apply flex items-center bg-grey-60 py-2 px-4 rounded-base hover:bg-grey-50 active:bg-grey-40 text-white;
-  }
-  .icon {
-    @apply w-[24px] h-[24px] flex-center;
-  }
+@layer base {
   .input {
     @apply placeholder:text-white/[0.32] hover:border-grey-30 focus:bg-grey-60 focus:border-grey-10 outline-none focus:opacity-100 border border-grey-60 rounded-base py-3 px-2 bg-grey-80 text-white;
   }
@@ -46,6 +34,27 @@ html {
   }
   .h3 {
     @apply font-normal text-white text-[16px] leading-[24px] tracking-[1%];
+  }
+}
+@layer utilities {
+  .rounded-base {
+    @apply rounded-[8px];
+  }
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+}
+
+@layer components {
+
+  .btn {
+    @apply flex items-center bg-grey-60 py-2 px-4 rounded-base hover:bg-grey-50 active:bg-grey-40 text-white;
+  }
+  .btn.btn-round{
+    @apply rounded-full bg-gradient-to-b from-grey-90/70 ;
+  }
+  .icon {
+    @apply w-[24px] h-[24px] flex-center;
   }
   .text-message {
     @apply font-normal text-white text-[12px] leading-[12px] tracking-[1%];

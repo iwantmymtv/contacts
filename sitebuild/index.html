@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                fontFamily: {
+                    body: ["lexend"],
+                    glysa: ["glysa"],
+                },
+                extend: {
+                    colors: {
+                        "grey-10": "#414141",
+                        "grey-20": "#3C3C3C",
+                        "grey-30": "#373737",
+                        "grey-40": "#323232",
+                        "grey-50": "#2D2D2D",
+                        "grey-60": "#282828",
+                        "grey-70": "#232323",
+                        "grey-80": "#1E1E1E",
+                        "grey-90": "#191919",
+                        "grey-100": "#141414",
+                    },
+                },
+            },
+        };
+    </script>
+    <style type="text/tailwindcss">
+        @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+      @font-face {
+        font-family: "glysa";
+        src: url("fonts/Glysa.otf");
+      }
+      @font-face {
+        font-family: "lexend";
+        src: url("fonts/LexendDeca-VariableFont_wght.ttf");
+      }
+      html {
+        font-family: "lexend";
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 1%;
+      }
+
+      @layer components {
+        .rounded-base {
+          @apply rounded-[8px];
+        }
+        .flex-center {
+          @apply flex justify-center items-center;
+        }
+        .btn {
+          @apply flex items-center bg-grey-60 py-2 px-4 rounded-base hover:bg-grey-50 active:bg-grey-40 text-white;
+        }
+        .icon {
+          @apply w-[24px] h-[24px] flex-center;
+        }
+        .input {
+          @apply placeholder:text-white/[0.32] hover:border-grey-30 focus:bg-grey-60 focus:border-grey-10 outline-none focus:opacity-100 border border-grey-60 rounded-base py-3 px-2 bg-grey-80 text-white;
+        }
+        .label {
+          @apply text-message leading-[16px] text-white/[0.56] mb-1;
+        }
+        .h1 {
+          @apply font-["glysa"] font-normal text-white text-[32px] leading-[48px] tracking-[0%];
+        }
+        .h2 {
+          @apply font-["glysa"]  font-normal text-white text-[24px] leading-[40px] tracking-[0%];
+        }
+        .h3 {
+          @apply font-normal text-white text-[16px] leading-[24px] tracking-[1%];
+        }
+        .text-message {
+          @apply font-normal text-white text-[12px] leading-[12px] tracking-[1%];
+        }
+      }
+    </style>
+
+    <title>Document</title>
+</head>
+
+<body class="bg-grey-100">
+    <div class="flex gap-5 p-4">
+        <div class="w-20 flex-center h-20 border-grey-50 border text-white bg-grey-10">
+            10
+        </div>
+        <div class="w-20 h-20 flex-center border-grey-50 border text-white bg-grey-20">
+            20
+        </div>
+        <div class="w-20 h-20 flex-center border-grey-50 border text-white bg-grey-30">
+            30
+        </div>
+        <div class="w-20 h-20 flex-center border-grey-50 border text-white bg-grey-40">
+            40
+        </div>
+        <div class="w-20 h-20 flex-center border-grey-50 border text-white bg-grey-50">
+            50
+        </div>
+        <div class="w-20 h-20 flex-center border-grey-50 border text-white bg-grey-60">
+            60
+        </div>
+        <div class="w-20 h-20 flex-center border-grey-50 border text-white bg-grey-70">
+            70
+        </div>
+        <div class="w-20 h-20 flex-center border-grey-50 border text-white bg-grey-80">
+            80
+        </div>
+        <div class="w-20 h-20 flex-center border-grey-50 border text-white bg-grey-90">
+            90
+        </div>
+        <div class="w-20 h-20 flex-center border-grey-50 border text-white bg-grey-100">
+            100
+        </div>
+    </div>
+    <div class="flex gap-5 p-4">
+        <div class="w-20 h-20 flex-center bg-white border-grey-50 border">
+            100
+        </div>
+        <div class="w-20 h-20 flex-center bg-white border-grey-50 border opacity-[.56]">
+            56
+        </div>
+        <div class="w-20 h-20 flex-center bg-white border-grey-50 border opacity-[.32]">
+            32
+        </div>
+    </div>
+    <div class="flex gap-5 p-4">
+        <button class="btn pl-3">
+            <div class="icon mr-2">
+                <svg height="14" width="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.25 13.75V7.75H0.25V6.25H6.25V0.25H7.75V6.25H13.75V7.75H7.75V13.75H6.25Z" fill="white" />
+                </svg>
+            </div>
+            <span> Add new </span>
+        </button>
+        <button class="btn">Add new</button>
+        <button class="btn px-2">
+            <div class="icon">
+                <svg height="14" width="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.25 13.75V7.75H0.25V6.25H6.25V0.25H7.75V6.25H13.75V7.75H7.75V13.75H6.25Z" fill="white" />
+                </svg>
+            </div>
+        </button>
+
+        <button class="btn rounded-full bg-gradient-to-b from-grey-90/70 to-bg-grey-60">
+            <div class="icon mr-2">
+                <svg height="14" width="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.25 13.75V7.75H0.25V6.25H6.25V0.25H7.75V6.25H13.75V7.75H7.75V13.75H6.25Z" fill="white" />
+                </svg>
+            </div>
+            <span> Add new </span>
+        </button>
+    </div>
+    <div class="flex gap-5 p-4">
+        <div class="flex flex-col">
+            <label for="example" class="label">Label</label>
+            <input name="example" placeholder="Example" type="text" class="input w-96" />
+        </div>
+    </div>
+    <div class="flex flex-col text-white gap-5 p-4">
+        <h1 class="h1">Headline 1. Used for titles</h1>
+        <h2 class="h2">Headline 2. Used for subtitles</h2>
+        <h3 class="h3">
+            Headline 3 Used for highlighting text in simple components
+        </h3>
+        <p>Body. Used for interactive elements</p>
+        <p class="text-message">Message. Used for displaying extensive info.</p>
+    </div>
+    <div class="flex gap-5 p-4">
+        <ul class="p-4 border border-grey-40 w-full flex flex-col gap-4">
+            <li class="flex w-full justify-between items-center">
+                <div class="flex-center py-3">
+                    <img class="w-10 h-10 rounded-full" src="imgs/profile.png" alt="profile placeholder" />
+                    <div class="ml-4">
+                        <h3 class="h3">Jonas Jonas</h3>
+                        <a class="text-message text-white/[0.56]" href="tel:+36012345678">+36 01 234 5678</a>
+                    </div>
+                </div>
+                <div class="flex">
+                    <button class="btn bg-grey-100 px-2">
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4.2499 18.8748V17.3748H6.2499V10.1248C6.2499 9.8748 6.26657 9.64147 6.2999 9.4248C6.33324 9.20814 6.3749 8.99147 6.4249 8.7748L2.0249 4.3748L3.0999 3.3248L20.9249 21.1498L19.8749 22.2248L16.4999 18.8748H4.2499ZM17.7499 15.1498L16.2499 13.6498V10.1248C16.2499 8.94147 15.8332 7.93714 14.9999 7.1118C14.1666 6.28714 13.1666 5.8748 11.9999 5.8748C11.5332 5.8748 11.0709 5.9538 10.6129 6.1118C10.1542 6.27047 9.7499 6.4998 9.3999 6.7998L8.3249 5.7248C8.6749 5.4248 9.05824 5.17047 9.4749 4.9618C9.89157 4.7538 10.3166 4.5998 10.7499 4.4998V3.7998C10.7499 3.4498 10.8709 3.1538 11.1129 2.9118C11.3542 2.67047 11.6499 2.5498 11.9999 2.5498C12.3499 2.5498 12.6456 2.67047 12.8869 2.9118C13.1289 3.1538 13.2499 3.4498 13.2499 3.7998V4.4998C14.4999 4.78314 15.5626 5.43747 16.4379 6.4628C17.3126 7.48747 17.7499 8.70814 17.7499 10.1248V15.1498ZM11.9999 21.7998C11.4999 21.7998 11.0749 21.6248 10.7249 21.2748C10.3749 20.9248 10.1999 20.4998 10.1999 19.9998H13.7999C13.7999 20.4998 13.6249 20.9248 13.2749 21.2748C12.9249 21.6248 12.4999 21.7998 11.9999 21.7998ZM7.7499 17.3748H14.9749L7.7999 10.1748C7.78324 10.2415 7.7709 10.3121 7.7629 10.3868C7.75424 10.4621 7.7499 10.5331 7.7499 10.5998V17.3748Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </button>
+                    <button class="btn bg-grey-100 px-2">
+                        <div class="icon">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5.55 17.5H2.3C1.8 17.5 1.375 17.325 1.025 16.975C0.675 16.625 0.5 16.2 0.5 15.7V9C0.5 7.81667 0.725 6.71267 1.175 5.688C1.625 4.66267 2.23333 3.76667 3 3C3.76667 2.23333 4.66267 1.625 5.688 1.175C6.71267 0.725 7.81667 0.5 9 0.5C10.1833 0.5 11.2873 0.725 12.312 1.175C13.3373 1.625 14.2333 2.23333 15 3C15.7667 3.76667 16.375 4.66267 16.825 5.688C17.275 6.71267 17.5 7.81667 17.5 9V15.7C17.5 16.2 17.325 16.625 16.975 16.975C16.625 17.325 16.2 17.5 15.7 17.5H12.45V10.425H16V9C16 7.05 15.3207 5.39567 13.962 4.037C12.604 2.679 10.95 2 9 2C7.05 2 5.396 2.679 4.038 4.037C2.67933 5.39567 2 7.05 2 9V10.425H5.55V17.5ZM4.05 11.925H2V15.7C2 15.7667 2.03333 15.8333 2.1 15.9C2.16667 15.9667 2.23333 16 2.3 16H4.05V11.925ZM13.95 11.925V16H15.7C15.7667 16 15.8333 15.9667 15.9 15.9C15.9667 15.8333 16 15.7667 16 15.7V11.925H13.95ZM13.95 11.925H16C16 11.925 15.9667 11.925 15.9 11.925C15.8333 11.925 15.7667 11.925 15.7 11.925H13.95ZM4.05 11.925H2.3C2.23333 11.925 2.16667 11.925 2.1 11.925C2.03333 11.925 2 11.925 2 11.925H4.05Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </button>
+                    <button class="btn bg-grey-100 px-2">
+                        <div class="icon">
+                            <svg width="16" height="4" viewBox="0 0 16 4" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M2.2251 3.5C1.80843 3.5 1.45443 3.354 1.1631 3.062C0.871098 2.77067 0.725098 2.41667 0.725098 2C0.725098 1.58333 0.871098 1.22933 1.1631 0.938C1.45443 0.646 1.80843 0.5 2.2251 0.5C2.64176 0.5 2.9961 0.646 3.2881 0.938C3.57943 1.22933 3.7251 1.58333 3.7251 2C3.7251 2.41667 3.57943 2.77067 3.2881 3.062C2.9961 3.354 2.64176 3.5 2.2251 3.5ZM8.0001 3.5C7.58343 3.5 7.22943 3.354 6.9381 3.062C6.6461 2.77067 6.5001 2.41667 6.5001 2C6.5001 1.58333 6.6461 1.22933 6.9381 0.938C7.22943 0.646 7.58343 0.5 8.0001 0.5C8.41676 0.5 8.77076 0.646 9.0621 0.938C9.3541 1.22933 9.5001 1.58333 9.5001 2C9.5001 2.41667 9.3541 2.77067 9.0621 3.062C8.77076 3.354 8.41676 3.5 8.0001 3.5ZM13.7751 3.5C13.3584 3.5 13.0044 3.354 12.7131 3.062C12.4211 2.77067 12.2751 2.41667 12.2751 2C12.2751 1.58333 12.4211 1.22933 12.7131 0.938C13.0044 0.646 13.3584 0.5 13.7751 0.5C14.1918 0.5 14.5461 0.646 14.8381 0.938C15.1294 1.22933 15.2751 1.58333 15.2751 2C15.2751 2.41667 15.1294 2.77067 14.8381 3.062C14.5461 3.354 14.1918 3.5 13.7751 3.5Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </li>
+            <li class="flex w-full justify-between items-center">
+                <div class="flex-center py-3">
+                    <img class="w-10 h-10 rounded-full" src="imgs/profile.png" alt="profile placeholder" />
+                    <div class="ml-4">
+                        <h3 class="h3">Jonas Jonas</h3>
+                        <a class="text-message text-white/[0.56]" href="tel:+36012345678">+36 01 234 5678</a>
+                    </div>
+                </div>
+                <div class="flex">
+                    <button class="btn bg-grey-100 px-2">
+                        <div class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M4.2499 18.8748V17.3748H6.2499V10.1248C6.2499 9.8748 6.26657 9.64147 6.2999 9.4248C6.33324 9.20814 6.3749 8.99147 6.4249 8.7748L2.0249 4.3748L3.0999 3.3248L20.9249 21.1498L19.8749 22.2248L16.4999 18.8748H4.2499ZM17.7499 15.1498L16.2499 13.6498V10.1248C16.2499 8.94147 15.8332 7.93714 14.9999 7.1118C14.1666 6.28714 13.1666 5.8748 11.9999 5.8748C11.5332 5.8748 11.0709 5.9538 10.6129 6.1118C10.1542 6.27047 9.7499 6.4998 9.3999 6.7998L8.3249 5.7248C8.6749 5.4248 9.05824 5.17047 9.4749 4.9618C9.89157 4.7538 10.3166 4.5998 10.7499 4.4998V3.7998C10.7499 3.4498 10.8709 3.1538 11.1129 2.9118C11.3542 2.67047 11.6499 2.5498 11.9999 2.5498C12.3499 2.5498 12.6456 2.67047 12.8869 2.9118C13.1289 3.1538 13.2499 3.4498 13.2499 3.7998V4.4998C14.4999 4.78314 15.5626 5.43747 16.4379 6.4628C17.3126 7.48747 17.7499 8.70814 17.7499 10.1248V15.1498ZM11.9999 21.7998C11.4999 21.7998 11.0749 21.6248 10.7249 21.2748C10.3749 20.9248 10.1999 20.4998 10.1999 19.9998H13.7999C13.7999 20.4998 13.6249 20.9248 13.2749 21.2748C12.9249 21.6248 12.4999 21.7998 11.9999 21.7998ZM7.7499 17.3748H14.9749L7.7999 10.1748C7.78324 10.2415 7.7709 10.3121 7.7629 10.3868C7.75424 10.4621 7.7499 10.5331 7.7499 10.5998V17.3748Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </button>
+                    <button class="btn bg-grey-100 px-2">
+                        <div class="icon">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M5.55 17.5H2.3C1.8 17.5 1.375 17.325 1.025 16.975C0.675 16.625 0.5 16.2 0.5 15.7V9C0.5 7.81667 0.725 6.71267 1.175 5.688C1.625 4.66267 2.23333 3.76667 3 3C3.76667 2.23333 4.66267 1.625 5.688 1.175C6.71267 0.725 7.81667 0.5 9 0.5C10.1833 0.5 11.2873 0.725 12.312 1.175C13.3373 1.625 14.2333 2.23333 15 3C15.7667 3.76667 16.375 4.66267 16.825 5.688C17.275 6.71267 17.5 7.81667 17.5 9V15.7C17.5 16.2 17.325 16.625 16.975 16.975C16.625 17.325 16.2 17.5 15.7 17.5H12.45V10.425H16V9C16 7.05 15.3207 5.39567 13.962 4.037C12.604 2.679 10.95 2 9 2C7.05 2 5.396 2.679 4.038 4.037C2.67933 5.39567 2 7.05 2 9V10.425H5.55V17.5ZM4.05 11.925H2V15.7C2 15.7667 2.03333 15.8333 2.1 15.9C2.16667 15.9667 2.23333 16 2.3 16H4.05V11.925ZM13.95 11.925V16H15.7C15.7667 16 15.8333 15.9667 15.9 15.9C15.9667 15.8333 16 15.7667 16 15.7V11.925H13.95ZM13.95 11.925H16C16 11.925 15.9667 11.925 15.9 11.925C15.8333 11.925 15.7667 11.925 15.7 11.925H13.95ZM4.05 11.925H2.3C2.23333 11.925 2.16667 11.925 2.1 11.925C2.03333 11.925 2 11.925 2 11.925H4.05Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </button>
+                    <button class="btn bg-grey-100 px-2">
+                        <div class="icon">
+                            <svg width="16" height="4" viewBox="0 0 16 4" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M2.2251 3.5C1.80843 3.5 1.45443 3.354 1.1631 3.062C0.871098 2.77067 0.725098 2.41667 0.725098 2C0.725098 1.58333 0.871098 1.22933 1.1631 0.938C1.45443 0.646 1.80843 0.5 2.2251 0.5C2.64176 0.5 2.9961 0.646 3.2881 0.938C3.57943 1.22933 3.7251 1.58333 3.7251 2C3.7251 2.41667 3.57943 2.77067 3.2881 3.062C2.9961 3.354 2.64176 3.5 2.2251 3.5ZM8.0001 3.5C7.58343 3.5 7.22943 3.354 6.9381 3.062C6.6461 2.77067 6.5001 2.41667 6.5001 2C6.5001 1.58333 6.6461 1.22933 6.9381 0.938C7.22943 0.646 7.58343 0.5 8.0001 0.5C8.41676 0.5 8.77076 0.646 9.0621 0.938C9.3541 1.22933 9.5001 1.58333 9.5001 2C9.5001 2.41667 9.3541 2.77067 9.0621 3.062C8.77076 3.354 8.41676 3.5 8.0001 3.5ZM13.7751 3.5C13.3584 3.5 13.0044 3.354 12.7131 3.062C12.4211 2.77067 12.2751 2.41667 12.2751 2C12.2751 1.58333 12.4211 1.22933 12.7131 0.938C13.0044 0.646 13.3584 0.5 13.7751 0.5C14.1918 0.5 14.5461 0.646 14.8381 0.938C15.1294 1.22933 15.2751 1.58333 15.2751 2C15.2751 2.41667 15.1294 2.77067 14.8381 3.062C14.5461 3.354 14.1918 3.5 13.7751 3.5Z"
+                                    fill="white" />
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="flex gap-5 p-4">
+        <ul class="w-60 rounded-base overflow-hidden bg-grey-70">
+            <li >
+                <button class="py-3 btn rounded-none bg-grey-70 pl-3 w-full flex-start">
+                    <div class="icon mr-2">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.08317 15.9168L5.74984 13.3752C5.52762 13.3057 5.30206 13.2016 5.07317 13.0627C4.84373 12.9238 4.63178 12.7779 4.43734 12.6252L2.08317 13.6252L0.166504 10.2918L2.20817 8.75016C2.18039 8.62516 2.16317 8.50016 2.1565 8.37516C2.14928 8.25016 2.14567 8.12516 2.14567 8.00016C2.14567 7.88905 2.14928 7.771 2.1565 7.646C2.16317 7.521 2.18039 7.38905 2.20817 7.25016L0.166504 5.7085L2.08317 2.396L4.43734 3.37516C4.63178 3.22238 4.84373 3.08016 5.07317 2.9485C5.30206 2.81627 5.52762 2.7085 5.74984 2.62516L6.08317 0.0834961H9.91651L10.2498 2.62516C10.4998 2.72239 10.7254 2.82988 10.9265 2.94766C11.1282 3.066 11.3332 3.2085 11.5415 3.37516L13.9165 2.396L15.8332 5.7085L13.7707 7.271C13.7984 7.40988 13.8123 7.53488 13.8123 7.646C13.8123 7.75711 13.8123 7.87516 13.8123 8.00016C13.8123 8.11127 13.8087 8.22572 13.8015 8.3435C13.7948 8.46183 13.7776 8.59738 13.7498 8.75016L15.7915 10.2918L13.8748 13.6252L11.5415 12.6252C11.3332 12.7918 11.1215 12.9377 10.9065 13.0627C10.691 13.1877 10.4721 13.2918 10.2498 13.3752L9.91651 15.9168H6.08317ZM7.99984 10.5002C8.69428 10.5002 9.28456 10.2571 9.77067 9.771C10.2568 9.28488 10.4998 8.69461 10.4998 8.00016C10.4998 7.30572 10.2568 6.71544 9.77067 6.22933C9.28456 5.74322 8.69428 5.50016 7.99984 5.50016C7.30539 5.50016 6.71512 5.74322 6.229 6.22933C5.74289 6.71544 5.49984 7.30572 5.49984 8.00016C5.49984 8.69461 5.74289 9.28488 6.229 9.771C6.71512 10.2571 7.30539 10.5002 7.99984 10.5002ZM7.99984 9.25016C7.65262 9.25016 7.35762 9.1285 7.11484 8.88516C6.8715 8.64238 6.74984 8.34738 6.74984 8.00016C6.74984 7.65294 6.8715 7.35794 7.11484 7.11516C7.35762 6.87183 7.65262 6.75016 7.99984 6.75016C8.34706 6.75016 8.64206 6.87183 8.88484 7.11516C9.12817 7.35794 9.24984 7.65294 9.24984 8.00016C9.24984 8.34738 9.12817 8.64238 8.88484 8.88516C8.64206 9.1285 8.34706 9.25016 7.99984 9.25016ZM7.1665 14.6668H8.81234L9.10401 12.4377C9.53456 12.3266 9.92345 12.1668 10.2707 11.9585C10.6179 11.7502 10.9582 11.4863 11.2915 11.1668L13.354 12.0418L14.1873 10.6252L12.3748 9.271C12.4443 9.04877 12.4896 8.8335 12.5107 8.62516C12.5312 8.41683 12.5415 8.2085 12.5415 8.00016C12.5415 7.77794 12.5312 7.56627 12.5107 7.36516C12.4896 7.1635 12.4443 6.9585 12.3748 6.75016L14.1873 5.37516L13.3748 3.9585L11.2707 4.8335C10.9929 4.54183 10.6596 4.28127 10.2707 4.05183C9.88178 3.82294 9.49289 3.65989 9.10401 3.56266L8.83317 1.3335H7.18734L6.89567 3.56266C6.47901 3.65989 6.09012 3.81266 5.729 4.021C5.36789 4.22933 5.02067 4.49322 4.68734 4.81266L2.62484 3.9585L1.81234 5.37516L3.604 6.7085C3.53456 6.91683 3.48595 7.12516 3.45817 7.3335C3.43039 7.54183 3.4165 7.76405 3.4165 8.00016C3.4165 8.22238 3.43039 8.43766 3.45817 8.646C3.48595 8.85433 3.53456 9.06266 3.604 9.271L1.81234 10.6252L2.62484 12.0418L4.68734 11.1668C5.00678 11.4863 5.34706 11.7502 5.70817 11.9585C6.06928 12.1668 6.46512 12.3266 6.89567 12.4377L7.1665 14.6668Z" fill="white" fill-opacity="0.56"/>
+                            </svg>                            
+                    </div>
+                    <span>Edit</span>
+                </button>
+            </li>
+            <li >
+                <button class=" py-3 btn rounded-none bg-grey-70 pl-3 w-full flex-start">
+                    <div class="icon mr-2">
+                        <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 17.3249L8.875 16.3249C6.34167 14.0416 4.31233 12.0582 2.787 10.3749C1.26233 8.69157 0.5 6.9499 0.5 5.1499C0.5 3.73324 0.979333 2.54557 1.938 1.5869C2.896 0.628902 4.08333 0.149902 5.5 0.149902C6.3 0.149902 7.096 0.337235 7.888 0.711902C8.67933 1.08724 9.38333 1.69157 10 2.5249C10.6167 1.69157 11.321 1.08724 12.113 0.711902C12.9043 0.337235 13.7 0.149902 14.5 0.149902C15.9167 0.149902 17.104 0.628902 18.062 1.5869C19.0207 2.54557 19.5 3.73324 19.5 5.1499C19.5 6.9499 18.7373 8.69157 17.212 10.3749C15.6873 12.0582 13.6583 14.0416 11.125 16.3249L10 17.3249ZM10 15.2999C12.3833 13.1332 14.3127 11.2666 15.788 9.6999C17.2627 8.13323 18 6.61657 18 5.1499C18 4.1499 17.6667 3.31657 17 2.6499C16.3333 1.98324 15.5 1.6499 14.5 1.6499C13.7167 1.6499 12.9917 1.86657 12.325 2.2999C11.6583 2.73324 11.125 3.36657 10.725 4.1999H9.275C8.875 3.36657 8.34167 2.73324 7.675 2.2999C7.00833 1.86657 6.28333 1.6499 5.5 1.6499C4.5 1.6499 3.66667 1.98324 3 2.6499C2.33333 3.31657 2 4.1499 2 5.1499C2 6.61657 2.73767 8.13323 4.213 9.6999C5.68767 11.2666 7.61667 13.1332 10 15.2999Z" fill="white"/>
+                            </svg>                            
+                    </div>
+                    <span>Favourite</span>
+                </button>
+            </li>
+            <li >
+                <button class="btn py-3 rounded-none bg-grey-70 pl-3 w-full flex-start">
+                    <div class="icon mr-2">
+                        <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.3 15.9998H10.7C10.7667 15.9998 10.8333 15.9665 10.9 15.8998C10.9667 15.8331 11 15.7665 11 15.6998V5.9998H3V15.6998C3 15.7665 3.03333 15.8331 3.1 15.8998C3.16667 15.9665 3.23333 15.9998 3.3 15.9998ZM0.625 3.2998V1.7998H3.6L4.6 0.799805H9.4L10.4 1.7998H13.375V3.2998H0.625ZM3.3 17.4998C2.8 17.4998 2.375 17.3248 2.025 16.9748C1.675 16.6248 1.5 16.1998 1.5 15.6998V4.4998H12.5V15.6998C12.5 16.1998 12.325 16.6248 11.975 16.9748C11.625 17.3248 11.2 17.4998 10.7 17.4998H3.3ZM3 15.9998H11C11 15.9998 10.9667 15.9998 10.9 15.9998C10.8333 15.9998 10.7667 15.9998 10.7 15.9998H3.3C3.23333 15.9998 3.16667 15.9998 3.1 15.9998C3.03333 15.9998 3 15.9998 3 15.9998Z" fill="white"/>
+                            </svg>
+                                                       
+                    </div>
+                    <span>Remove</span>
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div class="flex gap-5 p-4 bg-grey-100 relative">
+        <div class="z-10 bg-black absolute top-0 left-0 w-full h-full"></div>
+        
+        <div class="z-20 flex flex-col bg-grey-100 rounded-base p-7 w-[364px]">
+            <h1 class="h1 mb-6">Add Contact</h1>
+            <div class=" mb-6 flex items-center" >
+                <img src="imgs/profile.png" class="rounded-full w-[88px] h-[88px] mr-4" alt="profile">
+                <div class="pl-3 flex gap-2">
+                    <button class="btn">
+                        <div class="icon mr-2">
+                            <svg height="14" width="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.25 13.75V7.75H0.25V6.25H6.25V0.25H7.75V6.25H13.75V7.75H7.75V13.75H6.25Z" fill="white" />
+                            </svg>
+                        </div>
+                        <span> Add picture </span>
+                    </button>
+                    <button class="btn px-2">
+                        <div class="icon">
+                            <svg height="14" width="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.25 13.75V7.75H0.25V6.25H6.25V0.25H7.75V6.25H13.75V7.75H7.75V13.75H6.25Z" fill="white" />
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class=" mb-6">
+                <div class="flex flex-col mb-6">
+                    <label for="example" class="label">Label</label>
+                    <input name="example" placeholder="Example" type="text" class="input w-full" />
+                </div>
+                <div class="flex flex-col mb-6">
+                    <label for="example" class="label">Phone number</label>
+                    <input name="example" placeholder="+36705557777" type="tel" class="input w-full" />
+                </div>
+                <div class="flex flex-col mb-6">
+                    <label for="example" class="label">Email address</label>
+                    <input name="example" placeholder="email@email.com" type="email" class="input w-full" />
+                </div>
+            </div>
+            <div class=" flex justify-end gap-2">
+                <button class="btn bg-grey-100">Cancel</button>
+                <button class="btn">Done</button>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

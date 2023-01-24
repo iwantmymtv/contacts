@@ -1,9 +1,11 @@
 type ButtonProps = {
     children: React.ReactNode;
     className?: string;
+    disabled?: boolean;
+    type?: "button" | "submit" | "reset";
     round?: boolean;
     iconOnly?: boolean;
-    onclick?: () => void;
+    onclick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   }
   
 const Button: React.FC<ButtonProps> = ({ 
@@ -11,7 +13,9 @@ const Button: React.FC<ButtonProps> = ({
     iconOnly=false, 
     className, 
     onclick,
-    children
+    children,
+    disabled = false,
+    type = "button"
     }) => {
 
     const classNameList = 
@@ -20,7 +24,11 @@ const Button: React.FC<ButtonProps> = ({
     `;
 
     return (
-      <button className={classNameList} onClick={onclick}>
+      <button 
+        className={classNameList} 
+        type={type} 
+        onClick={onclick} 
+        disabled={disabled}>
         {children}
       </button>
     );

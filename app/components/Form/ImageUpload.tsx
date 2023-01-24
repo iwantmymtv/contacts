@@ -1,15 +1,18 @@
 'use client'
 
+import { useContext, useState } from 'react';
+
 import Image from 'next/image';
-import { useState } from 'react';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 
-type Props = { }
+import { ImageContext } from './ImageProvider';
 
-const ImageUpload: React.FC<Props> = () => {
+
+const ImageUpload: React.FC = () => {
+    
     const [hasImage,setHasImage] = useState<boolean>(false)
-    const [imageFile, setImageFile] = useState<File | null>(null);
+    const {imageFile,setImageFile} = useContext(ImageContext);
     const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
   
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,6 +25,11 @@ const ImageUpload: React.FC<Props> = () => {
         setHasImage(true)
       }
       reader.readAsDataURL(file!);
+    }
+    const handleRemove = () => {
+        setImageFile(null)
+        setImagePreviewUrl(null)
+        setHasImage(false)
     }
 
     return (
@@ -41,8 +49,8 @@ const ImageUpload: React.FC<Props> = () => {
                 </Button>
 
                 {hasImage && 
-                    <Button iconOnly>
-                        <Icon name="trash" />
+                    <Button iconOnly onclick={handleRemove}>
+                        <Icon name="trash"  />
                     </Button>
                 }
             </div>

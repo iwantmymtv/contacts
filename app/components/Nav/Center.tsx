@@ -1,17 +1,17 @@
 'use client'
 
-import { useState } from "react";
+import { useContext} from "react";
 import Icon from "../Icon/Icon";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
-
+import { ModalContext } from "../Modal/ModalProvider";
 
 const Center = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  
+  const { openModal } = useContext(ModalContext);
+
     return (
       <>
-      {isModalOpen && <Modal title="Add contact"/>}
+      <Modal title="Add contact"/>
       <div className="w-full px-6 py-8 md:max-w-xl xl:max-w-5xl flex-none border-x border-grey-60">
         <div className="flex justify-between">
           <h1 className="h1">Contacts</h1>
@@ -31,7 +31,7 @@ const Center = () => {
             </Button>
 
             <div className="ml-2 md:ml-6">
-              <Button round onclick={() => setIsModalOpen(true)}>
+              <Button round onclick={openModal}>
                 <Icon name="add" className="mr-2" />
                 <span className="hidden md:block"> Add new </span>
               </Button>

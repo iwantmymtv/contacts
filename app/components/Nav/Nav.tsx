@@ -1,10 +1,12 @@
+'use client'
 import Icon from "../Icon/Icon";
 import Button from "../Button/Button";
 import Center from "./Center"
+import ModalProvider from "../Modal/ModalProvider";
 
 const Nav = () => {
   return (
-    <>
+    <ModalProvider>
       {/* first row of ui start */}
       <div className="h-16 md:h-24  flex justify-between items-center md:max-w-xl xl:max-w-5xl border-x border-grey-60 mx-auto">
         <div className="md:hidden ml-4 h-full flex justify-end items-center">
@@ -43,7 +45,7 @@ const Nav = () => {
         </div>
       </nav>
       {/* normal nav end*/}
-    </>
+    </ModalProvider>
   );
 };
 

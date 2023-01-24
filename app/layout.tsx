@@ -1,5 +1,8 @@
+'use client'
+
 import './globals.css'
 import Nav from '../app/components/Nav/Nav'
+import { ContactProvider } from "./components/ContactList/ContactProvider"
 
 export default function RootLayout({
   children,
@@ -14,8 +17,10 @@ export default function RootLayout({
       */}
       <head />
       <body className="w-screen h-screen bg-grey-100 overflow-x-hidden">
-        <Nav/>
-        {children}
+        <ContactProvider>
+          <Nav/>
+          {children}
+        </ContactProvider>
       </body>
     </html>
   )

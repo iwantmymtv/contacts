@@ -5,8 +5,11 @@ import { useState } from "react";
 import Icon from "../Icon/Icon";
 import Button from "../Button/Button";
 import DropdownMenu from "./DropdownMenu";
+type Props = {
+  id:number
+}
 
-const HoverIcons = () => {
+const HoverIcons:React.FC<Props> = ({id}) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -19,7 +22,7 @@ const HoverIcons = () => {
           </Button>
           <div onClick={() => setIsOpen(!isOpen)} className="btn bg-grey-100 px-2 relative cursor-pointer">
             <Icon  name="more" />
-            {isOpen && <DropdownMenu />}
+            {isOpen && <DropdownMenu id={id} />}
         </div>
     </div>
     )

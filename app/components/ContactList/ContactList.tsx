@@ -1,10 +1,10 @@
 import ListItem from "./ListItem";
 
-interface Contact {
+export interface Contact {
     id: number;
     name: string;
     phone: string;
-    img?: string;
+    img?: string | File;
 }
 
 type ContactListProps = {

@@ -1,8 +1,21 @@
-import Icon from "../Icon/Icon";
+'use client'
 
-const DropdownMenu = () => {
+import { useContext } from "react";
+import Icon from "../Icon/Icon";
+import { ContactContext } from "./ContactProvider";
+
+type Props = {
+    id:number
+}
+
+const DropdownMenu:React.FC<Props> = ({id}) => {
+    const {contacts,setContacts} = useContext(ContactContext);
+
+    const handleRemove = (id:number) => {
+        setContacts(contacts.filter(contact => contact.id !== id))
+    }
+    
     return (
-        
         <div className="absolute top-[30px] right-[-12px] flex gap-5 p-4">
           <ul className="w-60 rounded-base overflow-hidden bg-grey-70">
               <li >
@@ -18,7 +31,7 @@ const DropdownMenu = () => {
                   </button>
               </li>
               <li >
-                  <button className="btn py-3 rounded-none bg-grey-70 pl-3 w-full flex-start">
+                  <button onClick={() => handleRemove(id)} className="btn py-3 rounded-none bg-grey-70 pl-3 w-full flex-start">
                     <Icon name="trash" />
                       <span className="ml-2">Remove</span>
                   </button>

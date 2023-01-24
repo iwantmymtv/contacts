@@ -33,7 +33,7 @@ const ListItem: React.FC<ListItemProps> = ({name,phone,img,id}) => {
                   <a className="text-message text-white/[0.56]" href={`tel:${phone}`}>{phone}</a>
               </div>
           </div>
-          {isHovering && <HoverIcons />}
+          {isHovering && <HoverIcons id={id} />}
       </li>
     )
 }

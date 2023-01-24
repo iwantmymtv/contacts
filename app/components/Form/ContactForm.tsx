@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { ModalContext } from '../Modal/ModalProvider';
 import { ImageContext } from './ImageProvider';
+import { ContactContext } from '../ContactList/ContactProvider';
 
 import Input from './Input';
 import ImageUpload from './ImageUpload';
@@ -42,6 +43,7 @@ interface Props {}
 const ModalForm: React.FC<Props> = () => {
   const {closeModal} = useContext(ModalContext);
   const {imageFile} = useContext(ImageContext);
+  const {contacts,setContacts} = useContext(ContactContext);
 
   const [formData, setFormData] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<ValidationErrors>({});
@@ -55,11 +57,21 @@ const ModalForm: React.FC<Props> = () => {
     event.preventDefault();
     const errors = validate(formData, validationRules);
     setErrors(errors);
+
     console.log("imageFile: ", imageFile)
+
     if (Object.keys(errors).length === 0) {
-      console.log(imageFile)
-      console.log(formData)
-      alert(`${formData.name}, formData.phone, formData.email`)
+      
+      //will be removed later, id will be from database
+      const last = contacts[contacts.length - 1]
+      const data = {
+        id: last.id +1,
+        ...formData,
+        img:imageFile
+      }
+      console.log(data)
+      setContacts([...contacts, data]);
+      closeModal()
     }
   };
 

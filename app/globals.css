@@ -24,7 +24,7 @@ html {
     @apply placeholder:text-white/[0.32] hover:border-grey-30 focus:bg-grey-60 focus:border-grey-10 outline-none focus:opacity-100 border border-grey-60 rounded-base py-3 px-2 bg-grey-80 text-white;
   }
   .label {
-    @apply text-message leading-[16px] text-white/[0.56] mb-1;
+    @apply capitalize text-message leading-[16px] text-white/[0.56] mb-1;
   }
   .h1 {
     @apply font-["glysa"] font-normal text-white text-[32px] leading-[48px] tracking-[0%];
@@ -42,6 +42,9 @@ html {
   }
   .flex-center {
     @apply flex justify-center items-center;
+  }
+  .transform-center{
+    @apply transform translate-x-[-50%] translate-y-[-50%] left-1/2 top-1/2;
   }
 }
 

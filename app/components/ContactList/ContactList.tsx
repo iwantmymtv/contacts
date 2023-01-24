@@ -1,10 +1,22 @@
 import ListItem from "./ListItem";
 
-const ContactList = () => {
+interface Contact {
+    id: number;
+    name: string;
+    phone: string;
+    img?: string;
+}
+
+type ContactListProps = {
+    data: Contact[]
+}
+
+const ContactList: React.FC<ContactListProps> = ({data}) => {
     return (
         <ul className="p-6 w-full flex flex-col gap-4">
-            <ListItem name="John Doe" phone="+36705816979" />
-            <ListItem name="Jane Doe" phone="+36705816979" />
+              {data.map((item) => (
+                <ListItem key={item.id} name={item.name} phone={item.phone} img={item.img} id={item.id} />
+            ))}
         </ul>
     )
 }

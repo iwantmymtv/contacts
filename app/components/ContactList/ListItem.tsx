@@ -2,14 +2,18 @@
 
 import { useState } from "react";
 import HoverIcons from "./HoverIcons";
+import Image from 'next/image';
+
+import profilePlaceholder from '../../../public/imgs/profile.png'
 
 type ListItemProps = {
+    id: number;
     name: string;
     phone: string;
-    image?: string;
+    img?: string;
   }
 
-const ListItem: React.FC<ListItemProps> = ({name,phone,image}) => {
+const ListItem: React.FC<ListItemProps> = ({name,phone,img,id}) => {
     const [isHovering, setIsHovering] = useState(false);
     
     return (
@@ -17,7 +21,13 @@ const ListItem: React.FC<ListItemProps> = ({name,phone,image}) => {
         onMouseLeave={() => setIsHovering(false)}
         className="flex w-full justify-between items-center">
           <div className="flex-center py-3">
-              <img className="w-12 h-12 rounded-full" src="imgs/profile.png" alt="profile placeholder" />
+              <Image
+                className="w-12 h-12 rounded-full"
+                src={img ? img : profilePlaceholder}
+                width={48}
+                height={48}
+                alt={`profile picture`}
+              />
               <div className="ml-4">
                   <h3 className="h3">{name}</h3>
                   <a className="text-message text-white/[0.56]" href={`tel:${phone}`}>{phone}</a>

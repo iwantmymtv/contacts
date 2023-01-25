@@ -6,6 +6,7 @@ type ButtonProps = {
     round?: boolean;
     iconOnly?: boolean;
     onclick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    onMouseEnter?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   }
   
 const Button: React.FC<ButtonProps> = ({ 
@@ -13,6 +14,7 @@ const Button: React.FC<ButtonProps> = ({
     iconOnly=false, 
     className, 
     onclick,
+    onMouseEnter,
     children,
     disabled = false,
     type = "button"
@@ -28,6 +30,7 @@ const Button: React.FC<ButtonProps> = ({
         className={classNameList} 
         type={type} 
         onClick={onclick} 
+        onMouseEnter={onMouseEnter}
         disabled={disabled}>
         {children}
       </button>

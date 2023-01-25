@@ -1,17 +1,11 @@
 import { PrismaClient } from '@prisma/client'
 import { NextApiRequest, NextApiResponse, NextApiHandler} from 'next'
 
-interface ContactData {
-    name: string
-    email: string
-    phone: string
-    img?: string
-}
+import { ContactData } from '@/app/components/ContactList/ContactList'
 
 type Query = {
     id?: string
 }
-
 
 interface ApiRequest extends NextApiRequest {
     body: ContactData
@@ -47,7 +41,7 @@ const contactsApi: NextApiHandler = async (req: ApiRequest, res: NextApiResponse
                 break
             case 'PUT':
                 const { id: contactPutId } = req.query as Query
-                const {  name: updateName, email: updateEmail, phone: updatePhone } = req.body
+                const {  name: updateName, email: updateEmail, phone: updatePhone, img: updateImg } = req.body
                 const updatedContact = await prisma.contact.update({
                     where: {
                         id: parseInt(contactPutId)
@@ -55,7 +49,8 @@ const contactsApi: NextApiHandler = async (req: ApiRequest, res: NextApiResponse
                     data: {
                         name: updateName,
                         email: updateEmail,
-                        phone: updatePhone
+                        phone: updatePhone,
+                        img: updateImg
                     }
                 })
                 res.status(200).json(updatedContact)

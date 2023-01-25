@@ -38,7 +38,7 @@ const Center = () => {
 
             <div className="ml-2 md:ml-6">
               <Button round onclick={openModal}>
-                <Icon name="add" className="mr-2" />
+                <Icon name="add" className="md:mr-2" />
                 <span className="hidden md:block"> Add new </span>
               </Button>
             </div>

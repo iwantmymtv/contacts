@@ -14,13 +14,13 @@ const HoverIcons:React.FC<Props> = ({id}) => {
 
     return (
         <div className="flex" >
-         <Button iconOnly className="bg-grey-100">
+         <Button onMouseEnter={() => setIsOpen(false)} iconOnly className="bg-grey-100">
             <Icon  name="mute" />
           </Button>
-          <Button  iconOnly className="bg-grey-100">
+          <Button onMouseEnter={() => setIsOpen(false)}iconOnly className="bg-grey-100">
             <Icon  name="unmute" />
           </Button>
-          <div onClick={() => setIsOpen(!isOpen)} className="btn bg-grey-100 px-2 relative cursor-pointer">
+          <div onMouseEnter={() => setIsOpen(!isOpen)} className="z-0 btn bg-grey-100 px-2 relative cursor-pointer">
             <Icon  name="more" />
             {isOpen && <DropdownMenu id={id} />}
         </div>

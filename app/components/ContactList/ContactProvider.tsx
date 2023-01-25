@@ -1,9 +1,9 @@
 import { createContext, useState } from 'react';
-import { Contact } from './ContactList';
+import { ContactData } from './ContactList';
 
 interface ContactContextProps {
-    contacts: Contact[],
-    setContacts: (contacts: Contact[]) => void;
+    contacts: ContactData[],
+    setContacts: (contacts: ContactData[]) => void;
 }
 
 export const ContactContext = createContext<ContactContextProps>({
@@ -16,7 +16,7 @@ interface Props {
 }
 
 export const ContactProvider: React.FC<Props> = ({children}) => {
-  const [contacts, setContacts] = useState<Contact[]>([]);
+  const [contacts, setContacts] = useState<ContactData[]>([]);
 
   return (
     <ContactContext.Provider value={{ contacts, setContacts }}>

@@ -12,22 +12,20 @@ import { ImageContext } from './ImageProvider';
 const ImageUpload: React.FC = () => {
     
     const [hasImage,setHasImage] = useState<boolean>(false)
-    const {imageFile,setImageFile} = useContext(ImageContext);
-    const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
+    const {imagePreviewUrl, setImagePreviewUrl} = useContext(ImageContext);
   
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
-      setImageFile(file!);
   
       const reader = new FileReader();
       reader.onloadend = () => {
         setImagePreviewUrl(reader.result as string);
         setHasImage(true)
       }
+
       reader.readAsDataURL(file!);
     }
     const handleRemove = () => {
-        setImageFile(null)
         setImagePreviewUrl(null)
         setHasImage(false)
     }

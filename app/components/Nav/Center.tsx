@@ -5,13 +5,19 @@ import Icon from "../Icon/Icon";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import { ModalContext } from "../Modal/ModalProvider";
+import { ImageProvider } from "../Form/ImageProvider";
+import ContactForm from "../Form/ContactForm"
 
 const Center = () => {
   const { openModal } = useContext(ModalContext);
 
     return (
       <>
-      <Modal title="Add contact"/>
+      <Modal title="Add contact">
+      <ImageProvider>
+        <ContactForm/>
+      </ImageProvider>
+      </Modal>
       <div className="w-full px-6 py-8 md:max-w-xl xl:max-w-5xl flex-none border-x border-grey-60">
         <div className="flex justify-between">
           <h1 className="h1">Contacts</h1>

@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import Icon from "../Icon/Icon";
 import { ContactContext } from "./ContactProvider";
+import { ModalContext } from "../Modal/ModalProvider";
 
 type Props = {
     id:number
@@ -10,6 +11,7 @@ type Props = {
 
 const DropdownMenu:React.FC<Props> = ({id}) => {
     const {contacts,setContacts} = useContext(ContactContext);
+    const {openModal} = useContext(ModalContext);
 
     const handleRemove = (id:number) => {
         setContacts(contacts.filter(contact => contact.id !== id))
@@ -19,7 +21,7 @@ const DropdownMenu:React.FC<Props> = ({id}) => {
         <div className="absolute top-[30px] right-[-12px] flex gap-5 p-4">
           <ul className="w-60 rounded-base overflow-hidden bg-grey-70">
               <li >
-                  <button onClick={() => alert("EDIT")} className="py-3 btn rounded-none bg-grey-70 pl-3 w-full flex-start">
+                  <button onClick={openModal} className="py-3 btn rounded-none bg-grey-70 pl-3 w-full flex-start">
                         <Icon name="settings" />
                       <span className="ml-2">Edit</span>
                   </button>

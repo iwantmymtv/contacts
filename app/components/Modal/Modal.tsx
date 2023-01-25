@@ -2,14 +2,12 @@
 
 import { useContext } from "react";
 import { ModalContext } from './ModalProvider';
-import { ImageProvider } from "../Form/ImageProvider";
-
-import ModalForm from "../Form/ContactForm";
 
 type ModalProps = {
+    children: React.ReactNode
     title: string
 }
-const Modal:React.FC<ModalProps> = ({title}) => {
+const Modal:React.FC<ModalProps> = ({title,children}) => {
     const { isOpen, closeModal } = useContext(ModalContext);
 
     return (
@@ -20,9 +18,7 @@ const Modal:React.FC<ModalProps> = ({title}) => {
 
             <div className="z-50 absolute transform-center flex flex-col bg-grey-100 rounded-base p-7 w-[364px]">
                 <h2 className="h2 mb-6">{title}</h2>
-                <ImageProvider>
-                    <ModalForm />
-                </ImageProvider>
+                {children}
             </div>
 
         </div>

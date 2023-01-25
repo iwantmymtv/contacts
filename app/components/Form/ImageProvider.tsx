@@ -1,8 +1,8 @@
 import { createContext, useState } from 'react';
 
 interface ImageContextProps {
-  imageFile: File | null;
-  setImageFile: React.Dispatch<React.SetStateAction<File | null>>;
+  imagePreviewUrl: string | null;
+  setImagePreviewUrl: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 interface Props {
@@ -10,13 +10,13 @@ interface Props {
   }
 
 export const ImageContext = createContext<ImageContextProps>({
-    imageFile: null,
-    setImageFile: () => {}
+  imagePreviewUrl: null,
+  setImagePreviewUrl: () => {}
 });
 
 export const ImageProvider: React.FC<Props> = ({ children }) => {
-    const [imageFile, setImageFile] = useState<File | null>(null);
-    const value = { imageFile, setImageFile };
+    const [imagePreviewUrl, setImagePreviewUrl] = useState<string | null>(null);
+    const value = { imagePreviewUrl, setImagePreviewUrl };
 
   return <ImageContext.Provider value={value}>{children}</ImageContext.Provider>;
 };

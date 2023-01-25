@@ -11,10 +11,11 @@ import { validate } from './validation';
 import { ValidationErrors } from './validation';
 
 type FormState = {
+  id?: number 
   name: string
   phone: string
   email: string
-  img?:File
+  img?:string | null
 }
 
 const initialState: FormState = {
@@ -38,13 +39,15 @@ const validationRules = {
   }
 }
 
-interface Props {}
+interface Props {
+}
 
-const ModalForm: React.FC<Props> = () => {
+const ContactForm: React.FC<Props> = () => {
+  //contexts
   const {closeModal} = useContext(ModalContext);
-  const {imageFile} = useContext(ImageContext);
+  const {imagePreviewUrl} = useContext(ImageContext);
   const {contacts,setContacts} = useContext(ContactContext);
-
+  //states
   const [formData, setFormData] = useState<FormState>(initialState);
   const [errors, setErrors] = useState<ValidationErrors>({});
 
@@ -58,8 +61,6 @@ const ModalForm: React.FC<Props> = () => {
     const errors = validate(formData, validationRules);
     setErrors(errors);
 
-    console.log("imageFile: ", imageFile)
-
     if (Object.keys(errors).length === 0) {
       
       //will be removed later, id will be from database
@@ -67,7 +68,7 @@ const ModalForm: React.FC<Props> = () => {
       const data = {
         id: last.id +1,
         ...formData,
-        img:imageFile
+        img:imagePreviewUrl
       }
       console.log(data)
       setContacts([...contacts, data]);
@@ -111,4 +112,4 @@ const ModalForm: React.FC<Props> = () => {
   );
 };
 
-export default ModalForm;
+export default ContactForm;

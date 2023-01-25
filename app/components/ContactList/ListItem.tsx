@@ -6,17 +6,19 @@ import Image from 'next/image';
 
 import profilePlaceholder from '../../../public/imgs/profile.png'
 
+
 type ListItemProps = {
     id: number;
     name: string;
     phone: string;
-    img?: string;
+    img?: string | File;
   }
 
 const ListItem: React.FC<ListItemProps> = ({name,phone,img,id}) => {
     const [isHovering, setIsHovering] = useState(false);
     
     return (
+      <>
       <li onMouseEnter={() => setIsHovering(true)} 
         onMouseLeave={() => setIsHovering(false)}
         className="flex w-full justify-between items-center">
@@ -35,6 +37,8 @@ const ListItem: React.FC<ListItemProps> = ({name,phone,img,id}) => {
           </div>
           {isHovering && <HoverIcons id={id} />}
       </li>
+      </>
+
     )
 }
 
